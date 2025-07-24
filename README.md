@@ -6,7 +6,7 @@ CareShare is a **web-based donation platform** that enables users to **share unu
 
 ### Watch Demo Video
 
-[https://www.youtube.com/watch?v=z3086vu3hco](./demo.mp4)
+[https://www.youtube.com/watch?v=z3086vu3hco] (Youtube)
 
 ## 🔍 Problem Statement
 
@@ -129,4 +129,4 @@ Every year, a significant amount of **safe and usable medicines or medical equip
 <img width="1899" height="882" alt="image" src="https://github.com/user-attachments/assets/5ab1f6d8-9bb2-463d-a2a1-1db6892dff2b" />
 ### Watch Demo Video
 
-[https://youtu.be/z3086vu3hco](./demo.mp4)
+[https://youtu.be/z3086vu3hco]( youtube)
