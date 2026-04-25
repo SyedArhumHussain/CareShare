@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@mui/lab": "^7.0.0-beta.11",
+    "lucide-react": "^0.488.0"
+  }
+}

@@ -1,0 +1,252 @@
+.paddingall{
+  padding: 16px;
+}
+
+.pricetitle{
+  font-weight: 600;
+  color: #333;
+  font-size: 1.125rem;
+}
+
+.pricesubtitle{
+  font-size: 0.875rem;
+  color: #637381;
+}
+
+.iconstyle{
+  padding: 20px 0px 0px 10px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.iconstyleblack{
+  padding: 20px 0px 0px 10px;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.gradient{
+  background: #58869e;
+  background: linear-gradient(135deg, #58869e 0%, #365b6f 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.gradientlight{
+  background: #58869e;
+  background: linear-gradient(135deg, #58869e 0%, #6a9fb5 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.bgcolor{
+  min-height: 100vh;
+  background: #f8f9fa;
+  background: linear-gradient(158deg, #f8f9fa 0%, #edf2f7 100%);
+}
+
+.navlist{
+  color: #58869e;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.table-container {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.table-header {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.action-button {
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+  text-transform: none;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 4px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #58869e; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #365b6f; 
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Interactive elements */
+.interactive-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-icon {
+  transition: transform 0.3s ease;
+}
+
+.interactive-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Data visualization */
+.stat-circle {
+  transition: all 0.5s ease;
+  transform-origin: center;
+}
+
+.stat-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .paddingall {
+    padding: 12px;
+  }
+  
+  .pricetitle {
+    font-size: 1rem;
+  }
+  
+  .pricesubtitle {
+    font-size: 0.75rem;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Status indicators */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-badge-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.status-badge-warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #FF9800;
+}
+
+.status-badge-danger {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+.status-badge-info {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196F3;
+}
+
+/* Button styles */
+.custom-button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  text-transform: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

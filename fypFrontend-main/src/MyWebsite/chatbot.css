@@ -1,0 +1,491 @@
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.chatbot-toggle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #2A9D8F;
+  color: white;
+  font-size: 28px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(42, 157, 143, 0.25);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+  background: #228a7d;
+  transform: scale(1.05);
+}
+
+.chatbot-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 380px;
+  height: 450px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Ensure the chatbot stays in the viewport on small screens */
+@media screen and (max-width: 400px) {
+  .chatbot-window {
+    width: 95vw;
+    right: 0;
+  }
+  
+  .chatbot-container {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #2A9D8F;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chatbot-header h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  line-height: 1.4;
+  font-size: 14px;
+  position: relative;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #2A9D8F;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: #f1f1f1;
+  color: #333;
+  border-bottom-left-radius: 4px;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  margin-bottom: 10px;
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.bot-message-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 28px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.input-container button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mic-btn {
+  background: #f0f0f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.mic-btn.recording {
+  background: #dc3545;
+  color: white;
+}
+
+.input-container button[type="submit"] {
+  background: #2A9D8F;
+  color: white;
+}
+
+.input-container button[type="submit"]:disabled {
+  background: #83C5BE;
+  cursor: not-allowed;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+}
+
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  background: #aaa;
+  border-radius: 50%;
+  animation: typing 1.2s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.speak-btn {
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.speak-btn:hover {
+  background: #e0e0e0;
+}
+
+.speak-btn.speaking {
+  color: #2A9D8F;
+  background: rgba(42, 157, 143, 0.1);
+}
+
+.markdown-content {
+  flex-grow: 1;
+  width: calc(100% - 40px);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding-right: 10px;
+}
+
+.markdown-content p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+.markdown-content strong {
+  font-weight: bold;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  animation: cursor-blink 1s infinite;
+  margin-left: 2px;
+}
+
+/* Animation for notification pulse */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(42, 157, 143, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0);
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes typing {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Add language selector styling */
+.language-selector {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.language-selector select {
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.language-selector select:hover {
+  border-color: #bbb;
+}
+
+.language-selector select:focus {
+  border-color: #2A9D8F;
+  box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
+}
+
+/* For RTL language support */
+[dir="rtl"] .message-content,
+[dir="rtl"] .input-container input {
+  text-align: right;
+}
+
+.submit-speech-btn {
+  background-color: #28a745;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.submit-speech-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.submit-speech-btn:active {
+  transform: scale(0.95);
+}
+
+/* RTL support for bot messages */
+[dir="rtl"] .message.bot {
+  padding-right: 14px;
+  padding-left: 40px;
+  padding-bottom: 25px;
+}
+
+[dir="rtl"] .speak-btn {
+  right: auto;
+  left: -12px;
+}
+
+[dir="rtl"] .markdown-content {
+  margin-left: 40px;
+  margin-right: 0;
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+  }
+  
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
+
+/* Custom scrollbar for chat */
+.messages-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Urdu text specific styles */
+[dir="rtl"] .message-content,
+[dir="rtl"] input {
+  text-align: right;
+}
+
+/* Markdown styles */
+.markdown-content a {
+  color: #2A9D8F;
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+.markdown-content code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.markdown-content strong {
+  font-weight: bold;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+/* Ensure bot content doesn't overflow */
+.markdown-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Fix RTL layout issues */
+[dir="rtl"] .markdown-content {
+  text-align: right;
+}
+
+/* Focus styles for accessibility */
+.input-container button:focus,
+.chatbot-toggle:focus {
+  outline: 2px solid #2A9D8F;
+  outline-offset: 2px;
+}

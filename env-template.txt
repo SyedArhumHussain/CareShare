@@ -1,0 +1,14 @@
+# CareShare Gemini Audio Service Environment Variables
+# Copy this content to a .env file and add your actual API key
+
+# Google Gemini API Key
+# Get your API key from: https://console.cloud.google.com/
+GEMINI_API_KEY=your_actual_api_key_here
+
+# Service Configuration
+SERVICE_PORT=5000
+SERVICE_HOST=localhost
+
+# Security Note: 
+# NEVER commit your actual .env file to version control
+# Add .env to your .gitignore file 
