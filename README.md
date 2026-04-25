@@ -1,4 +1,4 @@
-**CareShare – Smart Medicine Donation & Healthcare Assistance Platform**
+## **CareShare – Smart Medicine Donation & Healthcare Assistance Platform**
 
 ---
 
@@ -14,7 +14,7 @@ Unused medicines are a major global issue, and CareShare solves this by enabling
 
 ## 🎥 Project Demo / Video Guide
 
-[CareShare Project Guide & Implementation](https://devpost.com/software/mediconnect-ecosysytem?utm_source=chatgpt.com)
+[CareShare Project Guide & Implementation](https://www.youtube.com/watch?v=z3086vu3hco))
 
 ---
 
@@ -162,16 +162,6 @@ CareShare/
 * 🧠 Advanced AI diagnosis support
 * 🌍 Multi-language support (Pashto, Urdu, etc.)
 * 📲 Mobile App version
-
----
-
-## ⚠️ Challenges
-
-* OCR accuracy for handwritten prescriptions
-* Medicine authenticity verification
-* Regulatory compliance
-
-➡️ OCR systems may struggle with unclear handwriting and require validation mechanisms ([GitLab][1])
 
 ---
 
